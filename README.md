@@ -2,7 +2,7 @@
 A scoreboard showing the names and current scores of the leading competitors, in a tournament.
 
 
-## Demo version: []() 
+<!-- ## Demo version: []()  -->
 
 ## Built With
 * HTML/CSS
