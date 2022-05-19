@@ -1,12 +1,14 @@
-header h4 {
+body {
+  background: url('./icons/background.png') no-repeat;
+  background-size: cover;
+}
+
+h1 {
   text-align: center;
 }
 
-.navbar {
-  background-color: rgb(225, 221, 221);
-  display: flex;
-  flex-direction: row;
-  height: 48px;
+header h4 {
+  text-align: center;
 }
 
 .navbar li {
@@ -16,8 +18,16 @@ header h4 {
 .container {
   display: grid;
   grid-template-columns: auto auto;
-  border: solid 2px;
+  border: solid 5px;
+  border-image: linear-gradient(223.69deg, rgba(246, 25, 224, 0.2) 42.35%, rgba(247, 25, 224, 0.2) 48.48%, rgba(50, 20, 232, 0.2) 60.46%, rgba(50, 20, 232, 0.2) 71.41%) 1;
   margin: 24px;
+}
+
+button {
+  background: linear-gradient(223.69deg, rgba(50, 20, 232, 0.2) 42.35%, rgba(50, 20, 232, 0.2) 48.48%, rgba(246, 25, 224, 0.2) 60.46%, rgba(247, 25, 224, 0.2) 71.41%);
+  border: none;
+  font-weight: 900;
+  padding: 5px;
 }
 
 .recent-score {
@@ -47,12 +57,14 @@ header h4 {
 
 span {
   display: block;
+  padding: 5px;
 }
 
 span:nth-child(even) {
-  background-color: rgb(225, 221, 221);
+  background-color: white;
 }
 
 .score-display {
-  border: solid 3px;
+  border: solid 5px;
+  border-image: linear-gradient(223.69deg, rgba(50, 20, 232, 0.2) 42.35%, rgba(50, 20, 232, 0.2) 48.48%, rgba(246, 25, 224, 0.2) 60.46%, rgba(247, 25, 224, 0.2) 71.41%) 1;
 }
