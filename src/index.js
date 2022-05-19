@@ -5,28 +5,32 @@ const addGame = document.querySelector('#gameSubmit');
 const Newname = document.getElementById('name');
 const Newscore = document.getElementById('score');
 const refresh = document.getElementById('refresh');
-let output = '';
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/MgJ4HogVRPPfSuFrrM0n/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/428wzGIhFujNFWtUaXvD/scores/';
 
 // get game scores
 const renderScore = (gameUsers) => {
   const gamers = (gameUsers.result);
   gamers.forEach((gameUser) => {
-    output += `
-     <span>${gameUser.user}:${gameUser.score}</span>  `;
+    const span = document.createElement('span');
+    span.innerHTML = `${gameUser.user}:${gameUser.score}`;
+    scoreDiv.appendChild(span);
   });
-  scoreDiv.innerHTML = output;
 };
-refresh.addEventListener('click', () => {
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => renderScore(data));
-});
 
-// create new game
-addGame.addEventListener('submit', (e) => {
-  e.preventDefault();
-  fetch(url, {
+async function getScores() {
+  const res = await fetch(url);
+  const data = await res.json();
+  renderScore(data);
+}
+const loadOnce = () => {
+  window.location.reload();
+};
+
+refresh.addEventListener('click', () => {
+  getScores();
+});
+async function addScoreForm() {
+  const res = fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,9 +39,15 @@ addGame.addEventListener('submit', (e) => {
       user: Newname.value,
       score: Newscore.value,
     }),
-  })
-    .then((res) => res.json())
-    .then((data) => (data));
+  });
+  const data = await (await res).json();
   Newname.value = '';
   Newscore.value = '';
+  loadOnce();
+  return data;
+}
+// create new game
+addGame.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addScoreForm();
 });
