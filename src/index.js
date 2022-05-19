@@ -5,14 +5,14 @@ const addGame = document.querySelector('#gameSubmit');
 const Newname = document.getElementById('name');
 const Newscore = document.getElementById('score');
 const refresh = document.getElementById('refresh');
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/428wzGIhFujNFWtUaXvD/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Cvjvaty8v75lgFTlmVzh/scores/';
 
 // get game scores
 const renderScore = (gameUsers) => {
   const gamers = (gameUsers.result);
   let list = '';
   gamers.forEach((gameUser) => {
-    list += `<span>${gameUser.user}:${gameUser.score}</span>`;
+    list += `<span>${gameUser.user} : ${gameUser.score}</span>`;
     scoreDiv.innerHTML = list;
   });
 };
