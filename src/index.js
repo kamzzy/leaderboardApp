@@ -6,7 +6,7 @@ const Newname = document.getElementById('name');
 const Newscore = document.getElementById('score');
 const refresh = document.getElementById('refresh');
 let output = '';
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cMgNveqYlglpFSSpFfwr/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/MgJ4HogVRPPfSuFrrM0n/scores/';
 
 // get game scores
 const renderScore = (gameUsers) => {
@@ -38,4 +38,6 @@ addGame.addEventListener('submit', (e) => {
   })
     .then((res) => res.json())
     .then((data) => (data));
+  Newname.value = '';
+  Newscore.value = '';
 });
