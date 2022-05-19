@@ -2,7 +2,7 @@
 A scoreboard showing the names and current scores of the leading competitors, in a tournament.
 
 
-<!-- ## Demo version: []()  -->
+## Demo version: [https://kamzzy.github.io/leaderboardApp/dist/index.html](https://kamzzy.github.io/leaderboardApp/dist/index.html) 
 
 ## Built With
 * HTML/CSS
