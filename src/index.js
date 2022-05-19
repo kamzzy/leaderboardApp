@@ -10,26 +10,23 @@ const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/game
 // get game scores
 const renderScore = (gameUsers) => {
   const gamers = (gameUsers.result);
+  let list = '';
   gamers.forEach((gameUser) => {
-    const span = document.createElement('span');
-    span.innerHTML = `${gameUser.user}:${gameUser.score}`;
-    scoreDiv.appendChild(span);
+    list += `<span>${gameUser.user}:${gameUser.score}</span>`;
+    scoreDiv.innerHTML = list;
   });
 };
 
-async function getScores() {
+const getScores = async () => {
   const res = await fetch(url);
   const data = await res.json();
   renderScore(data);
-}
-const loadOnce = () => {
-  window.location.reload();
 };
 
 refresh.addEventListener('click', () => {
   getScores();
 });
-async function addScoreForm() {
+const addScoreForm = async () => {
   const res = fetch(url, {
     method: 'POST',
     headers: {
@@ -43,9 +40,8 @@ async function addScoreForm() {
   const data = await (await res).json();
   Newname.value = '';
   Newscore.value = '';
-  loadOnce();
   return data;
-}
+};
 // create new game
 addGame.addEventListener('submit', (e) => {
   e.preventDefault();
